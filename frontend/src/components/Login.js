@@ -25,7 +25,7 @@ const Login = ({ show, handleClose, setIsLoggedIn, handleShowRegister }) => {
         if (error.response?.status === 400) {
           setError(
             <div>
-              Account not found. 
+              Cuenta no encontrada. 
               <Button 
                 variant="link" 
                 onClick={() => {
@@ -35,12 +35,12 @@ const Login = ({ show, handleClose, setIsLoggedIn, handleShowRegister }) => {
                 className="p-0 ms-1"
                 style={{ textDecoration: 'none', color: '#FF4B6A' }}
               >
-                Create an account?
+                Crear una cuenta?
               </Button>
             </div>
           );
         } else {
-          setError("Login failed. Please check your credentials.");
+          setError("Inicio sesión inválido. Por favor, compruebe sus credenciales.");
         }
       }
     };
@@ -62,18 +62,18 @@ const Login = ({ show, handleClose, setIsLoggedIn, handleShowRegister }) => {
             <Form.Control
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="ejemplo: usuario@ejemplo.com"
               onChange={handleChange}
               required
             />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Contraseña</Form.Label>
             <Form.Control
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="**********"
               onChange={handleChange}
               required
             />
@@ -81,7 +81,7 @@ const Login = ({ show, handleClose, setIsLoggedIn, handleShowRegister }) => {
 
           <div className="d-grid gap-2">
             <Button variant="danger" type="submit" style={{ backgroundColor: "#FF4B6A", border: "none" }}>
-              Log in
+              Iniciar sesión
             </Button>
           </div>
         </Form>

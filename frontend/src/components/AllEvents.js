@@ -61,13 +61,13 @@ const AllEvents = () => {
   return (
     <Container>
             <div className="d-flex justify-content-between align-items-center my-4">
-        <h2>All Events</h2>
+        <h2>Eventos</h2>
         {hasPastEvents && (
           <Button 
             variant="secondary" 
             onClick={() => setShowPastEvents(!showPastEvents)}
           >
-            {showPastEvents ? 'Show Upcoming Events' : 'Show Past Events'}
+            {showPastEvents ? 'Próximos Eventos' : 'Eventos Pasados'}
           </Button>
         )}
       </div>
@@ -75,7 +75,7 @@ const AllEvents = () => {
         <div className="row">
           <div className="col-md-5">
             <Form.Group>
-              <Form.Label>Date</Form.Label>
+              <Form.Label>Fecha</Form.Label>
               <Form.Control 
                 type="date" 
                 value={date} 
@@ -85,10 +85,10 @@ const AllEvents = () => {
           </div>
           <div className="col-md-5">
             <Form.Group>
-              <Form.Label>Location</Form.Label>
+              <Form.Label>Ubicación</Form.Label>
               <Form.Control 
                 type="text" 
-                placeholder="Enter location"
+                placeholder="Ejemplo: Bogotá"
                 value={location} 
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -96,7 +96,7 @@ const AllEvents = () => {
           </div>
           <div className="col-md-2 d-flex align-items-end gap-2">
             <Button variant="primary" type="submit" className="flex-grow-1">
-              Filter
+              Filtrar
             </Button>
             <Button 
               variant="secondary" 
@@ -104,7 +104,7 @@ const AllEvents = () => {
               onClick={clearFilters}
               className="flex-grow-1"
             >
-              Clear
+              Limpiar
             </Button>
           </div>
         </div>
@@ -113,11 +113,11 @@ const AllEvents = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Description</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Ubicación</th>
+            <th>Descripción</th>
           </tr>
         </thead>
         <tbody>
@@ -134,9 +134,9 @@ const AllEvents = () => {
           ) : (
             <tr>
               <td colSpan="5" className="text-center">
-                {showPastEvents 
-                  ? "No past events found" 
-                  : "No upcoming events found"}
+                {showPastEvents
+                  ? "No hay eventos pasados encontrados"
+                  : "No hay eventos encontrados"}
               </td>
             </tr>
           )}

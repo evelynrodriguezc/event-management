@@ -25,7 +25,7 @@ const Register = ({ show, handleClose, handleShowLogin }) => {
         if (error.response?.data?.message === 'User already exists') {
           setError(
             <div className="d-flex align-items-center justify-content-between">
-              <span>This email is already registered.</span>
+              <span>Este correo ya se encuentra registrado.</span>
               <Button 
                 variant="link" 
                 onClick={() => {
@@ -58,12 +58,12 @@ const Register = ({ show, handleClose, handleShowLogin }) => {
               )}
     
               <Form.Group className="mb-3">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Nombre</Form.Label>
                 <Form.Control
                   type="text"
                   name="name"
                   value={formData.name}
-                  placeholder="Enter your name"
+                  placeholder="Introduzca su nombre"
                   onChange={handleChange}
                   required
                 />
@@ -75,19 +75,19 @@ const Register = ({ show, handleClose, handleShowLogin }) => {
                   type="email"
                   name="email"
                   value={formData.email}
-                  placeholder="Enter your email"
+                  placeholder="ejemplo: usuario@ejemplo.com"
                   onChange={handleChange}
                   required
                 />
               </Form.Group>
     
               <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="password"
                   name="password"
                   value={formData.password}
-                  placeholder="Enter your password"
+                  placeholder="**********"
                   onChange={handleChange}
                   required
                 />
@@ -99,7 +99,7 @@ const Register = ({ show, handleClose, handleShowLogin }) => {
                   type="submit" 
                   style={{ backgroundColor: "#FF4B6A", border: "none" }}
                 >
-                  Sign up
+                  Registrarse
                 </Button>
               </div>
             </Form>

@@ -71,9 +71,9 @@ const MyEvents = () => {
   return (
     <Container>
       <div className="d-flex justify-content-between align-items-center my-4">
-        <h2>My Events</h2>
+        <h2>Mis Eventos</h2>
         <Button variant="success" onClick={() => navigate('/events/new')}>
-          Create New Event
+          Crear Nuevo Evento
         </Button>
       </div>
 
@@ -81,7 +81,7 @@ const MyEvents = () => {
         <div className="row">
           <div className="col-md-5">
             <Form.Group>
-              <Form.Label>Date</Form.Label>
+              <Form.Label>Fecha</Form.Label>
               <Form.Control 
                 type="date" 
                 value={date} 
@@ -91,7 +91,7 @@ const MyEvents = () => {
           </div>
           <div className="col-md-5">
             <Form.Group>
-              <Form.Label>Location</Form.Label>
+              <Form.Label>Ubicación</Form.Label>
               <Form.Control 
                 type="text" 
                 placeholder="Enter location"
@@ -102,7 +102,7 @@ const MyEvents = () => {
           </div>
           <div className="col-md-2 d-flex align-items-end gap-2">
             <Button variant="primary" type="submit" className="flex-grow-1">
-              Filter
+              Filtrar
             </Button>
             <Button 
               variant="secondary" 
@@ -110,7 +110,7 @@ const MyEvents = () => {
               onClick={clearFilters}
               className="flex-grow-1"
             >
-              Clear
+              Limpiar
             </Button>
           </div>
         </div>
@@ -119,12 +119,12 @@ const MyEvents = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Actions</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Ubicación</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -157,7 +157,7 @@ const MyEvents = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="6" className="text-center">No events found</td>
+              <td colSpan="6" className="text-center">No hay eventos encontrados</td>
             </tr>
           )}
         </tbody>

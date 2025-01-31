@@ -37,8 +37,8 @@ function App() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link as={Link} to="/events">All Events</Nav.Link>
-                {isLoggedIn && <Nav.Link as={Link} to="/my-events">My Events</Nav.Link>}
+                <Nav.Link as={Link} to="/events">Todos los Eventos</Nav.Link>
+                {isLoggedIn && <Nav.Link as={Link} to="/my-events">Mis Eventos</Nav.Link>}
               </Nav>
               <Nav>
                 {!isLoggedIn ? (
