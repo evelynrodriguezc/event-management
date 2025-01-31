@@ -5,15 +5,31 @@ import { Container, Table, Form, Button } from "react-bootstrap";
 
 const AllEvents = () => {
   const [events, setEvents] = useState([]);
+  const [showPastEvents, setShowPastEvents] = useState(false);
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
+  const [hasPastEvents, setHasPastEvents] = useState(false);
 
-  const formatDate = (isoDate) => {
-    const date = new Date(isoDate);
+  // Format date for display
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
+  };
+
+  // Filter events based on current date
+  const filterEventsByDate = (events) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const pastEvents = events.filter(event => new Date(event.date) < today);
+    const currentAndFutureEvents = events.filter(event => new Date(event.date) >= today);
+
+    setHasPastEvents(pastEvents.length > 0);
+    
+    return showPastEvents ? pastEvents : currentAndFutureEvents;
   };
 
   const fetchEvents = useCallback(async () => {
@@ -21,11 +37,12 @@ const AllEvents = () => {
       const response = await axios.get("http://localhost:3000/api/events", {
         params: { date, location },
       });
-      setEvents(response.data);
+      const filteredEvents = filterEventsByDate(response.data);
+      setEvents(filteredEvents);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
-  }, [date, location]);
+  }, [date, location, showPastEvents]); // Added showPastEvents as dependency
 
   useEffect(() => {
     fetchEvents();
@@ -39,13 +56,21 @@ const AllEvents = () => {
   const clearFilters = () => {
     setDate("");
     setLocation("");
-    // After clearing state, fetchEvents will be called automatically
-    // due to the useEffect dependency on [fetchEvents] which depends on date and location
   };
 
   return (
     <Container>
-      <h2 className="my-4">All Events</h2>
+            <div className="d-flex justify-content-between align-items-center my-4">
+        <h2>All Events</h2>
+        {hasPastEvents && (
+          <Button 
+            variant="secondary" 
+            onClick={() => setShowPastEvents(!showPastEvents)}
+          >
+            {showPastEvents ? 'Show Upcoming Events' : 'Show Past Events'}
+          </Button>
+        )}
+      </div>
       <Form onSubmit={handleFilter} className="mb-4">
         <div className="row">
           <div className="col-md-5">
@@ -108,7 +133,11 @@ const AllEvents = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="5" className="text-center">No events found</td>
+              <td colSpan="5" className="text-center">
+                {showPastEvents 
+                  ? "No past events found" 
+                  : "No upcoming events found"}
+              </td>
             </tr>
           )}
         </tbody>

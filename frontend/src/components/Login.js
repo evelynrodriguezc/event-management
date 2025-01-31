@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Modal, Form, Button } from 'react-bootstrap';
 
-const Login = ({ setIsLoggedIn }) => {  // Add setIsLoggedIn prop
+const Login = ({ show, handleClose, setIsLoggedIn, handleShowRegister }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (error) setError(null);
   };
 
   const handleSubmit = async (e) => {
@@ -16,48 +18,75 @@ const Login = ({ setIsLoggedIn }) => {  // Add setIsLoggedIn prop
     try {
       const response = await axios.post("http://localhost:3000/api/auth/login", formData);
       localStorage.setItem("token", response.data.token);
-      setIsLoggedIn(true);  // Update login state
+      setIsLoggedIn(true);
+      handleClose();
       navigate("/events");
     } catch (error) {
-      alert("Login failed. Check your credentials.");
-    }
-  };
+        if (error.response?.status === 400) {
+          setError(
+            <div>
+              Account not found. 
+              <Button 
+                variant="link" 
+                onClick={() => {
+                  handleClose();
+                  handleShowRegister();
+                }}
+                className="p-0 ms-1"
+                style={{ textDecoration: 'none', color: '#FF4B6A' }}
+              >
+                Create an account?
+              </Button>
+            </div>
+          );
+        } else {
+          setError("Login failed. Please check your credentials.");
+        }
+      }
+    };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center mt-5">
-        <Col md={6}>
-          <h2 className="mb-4">Login</h2>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control 
-                type="email" 
-                name="email" 
-                placeholder="Enter email" 
-                onChange={handleChange} 
-                required 
-              />
-            </Form.Group>
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Log in</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleSubmit}>
+        {error && (  // Add error display
+            <div className="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control 
-                type="password" 
-                name="password" 
-                placeholder="Password" 
-                onChange={handleChange} 
-                required 
-              />
-            </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Login
+          <div className="d-grid gap-2">
+            <Button variant="danger" type="submit" style={{ backgroundColor: "#FF4B6A", border: "none" }}>
+              Log in
             </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+          </div>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 };
 
