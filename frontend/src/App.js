@@ -61,7 +61,7 @@ function App() {
             fontWeight: '600',
           }}
         >
-          All Events
+          Eventos
         </Nav.Link>
         {isLoggedIn && 
           <Nav.Link 
@@ -72,7 +72,7 @@ function App() {
               fontWeight: '600'
             }}
           >
-            My Events
+            Mis Eventos
           </Nav.Link>
         }
       </Nav>
@@ -86,7 +86,7 @@ function App() {
                 fontWeight: '600'
               }}
             >
-              Login
+              Iniciar
             </Nav.Link>
             <Nav.Link 
               onClick={handleShowRegister}
@@ -95,7 +95,7 @@ function App() {
                 fontWeight: '600'
               }}
             >
-              Register
+              Registrarse
             </Nav.Link>
           </>
         ) : (
@@ -106,7 +106,7 @@ function App() {
               fontWeight: '600'
             }}
           >
-            Logout
+            Cerrar Sesión
           </Nav.Link>
         )}
       </Nav>
