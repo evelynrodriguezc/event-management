@@ -32,7 +32,7 @@ const Register = ({ show, handleClose, handleShowLogin }) => {
                   handleClose();
                   handleShowLogin();
                 }}
-                style={{ color: '#FF4B6A', textDecoration: 'none', padding: '0', marginLeft: '10px' }}
+                style={{ color: '#E64A2E', textDecoration: 'none', padding: '0', marginLeft: '10px' }}
               >
                 Log in instead
               </Button>

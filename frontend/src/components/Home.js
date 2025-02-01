@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Container, Button, Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Footer from './Footer';
-import conferencePic from '../assets/conferencePic.png';
-import meetupPic from '../assets/meetupPic.png';
-import workshopPic from '../assets/workshopPic.png';
+import backgroundImg from '../assets/background.webp';
 import car1 from '../assets/car1.jpg';
 import car2 from '../assets/car2.jpg';
 import car3 from '../assets/car3.jpg';
@@ -36,14 +34,16 @@ const Home = () => {
         { img: car6, title: "Cloud Computing Day", desc: "Jornada de computación en la nube" }
       ]
     }
-    // Add more groups of 3 as needed
   ];
 
   return (
     <div className="d-flex flex-column min-vh-100">
       <div 
         style={{
-          background: 'linear-gradient(135deg, #E0F7F6 0%, #B2EBF2 100%)',
+          background: `url(${backgroundImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           position: 'fixed',
           zIndex: -1,
           top: 0,
@@ -91,7 +91,7 @@ const Home = () => {
 
           <Button 
             onClick={() => navigate('/events')}
-            className="px-5 py-3"
+            className="px-5 py-3 mb-5 mt-5"
             style={{
               backgroundColor: "#E64A2E",
               border: "none",
@@ -112,7 +112,7 @@ const Home = () => {
           <Carousel
             activeIndex={index}
             onSelect={handleSelect}
-            interval={5000}
+            interval={9000}
             indicators={true}
             style={{ 
               backgroundColor: 'transparent',
@@ -128,6 +128,9 @@ const Home = () => {
                       className="bg-white rounded-3 overflow-hidden"
                       style={{
                         width: '300px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
                         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
                         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                       }}

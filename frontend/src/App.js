@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from "react-router-dom";
 import { Nav, Navbar, Container } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Register from "./components/Register";
 import Login from "./components/Login";
 import EventForm from "./components/EventForm";
@@ -33,14 +35,16 @@ function App() {
     <Router>
       <div>
       <Navbar 
-  bg="light" 
-  expand="lg" 
-  className="mb-4" 
-  style={{ 
-    height: '80px',
-    padding: '0 20px'
-  }}
->
+        expand="lg" 
+        className="mb-4" 
+        style={{ 
+          height: '80px',
+          padding: '0 20px',
+          backgroundColor: 'rgba(255, 229, 197, 0.6)',  // Soft orange #FFE5C5 with transparency
+          backdropFilter: 'blur(10px)',
+          borderBottom: '1px solid rgba(255, 229, 197, 0.5)' // Subtle border with same color
+        }}
+      >
   <Container>
     <Navbar.Brand as={Link} to="/" >
       <img
@@ -137,6 +141,18 @@ function App() {
             <Route path="/events/edit/:id" element={isLoggedIn ? <EventForm /> : <Navigate to="/login" />} />
           </Routes>
         </Container>
+        <ToastContainer 
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
     </Router>
   );

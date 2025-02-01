@@ -80,7 +80,7 @@ const Login = ({ show, handleClose, setIsLoggedIn, handleShowRegister }) => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="danger" type="submit" style={{ backgroundColor: "#FF4B6A", border: "none" }}>
+            <Button variant="danger" type="submit" style={{ backgroundColor: "#E64A2E", border: "none" }}>
               Iniciar sesión
             </Button>
           </div>
