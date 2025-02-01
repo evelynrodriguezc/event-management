@@ -97,7 +97,7 @@ const Register = ({ show, handleClose, handleShowLogin }) => {
                 <Button 
                   variant="danger" 
                   type="submit" 
-                  style={{ backgroundColor: "#FF4B6A", border: "none" }}
+                  style={{ backgroundColor: "#E64A2E", border: "none" }}
                 >
                   Registrarse
                 </Button>
