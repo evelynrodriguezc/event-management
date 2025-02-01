@@ -25,9 +25,20 @@ const Home = () => {
         paddingTop: "50px"
       }}>
         <Container className="text-center">
-          <h1 className="mb-4" style={{ fontSize: "2.5rem" }}>
+        <h1 
+            className="mb-4" 
+            style={{ 
+
+                fontSize: "3.5rem",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 900,
+                letterSpacing: "-0.04em",
+                lineHeight: 1.1,
+                paddingTop: "60px"
+            }}
+        >
             Próximos eventos de tecnología e innovación
-          </h1>
+        </h1>
           
           <p className="mb-5" style={{ 
             fontSize: "1.2rem", 
@@ -38,19 +49,30 @@ const Home = () => {
             innovación, tecnología, diseño y emprendimiento en Latinoamérica.
           </p>
 
-          <Button 
-            variant="secondary" 
-            size="lg" 
-            onClick={() => navigate('/events')}
-            style={{
-              backgroundColor: "#5F8F8F",
-              border: "none",
-              padding: "10px 40px",
-              borderRadius: "25px"
-            }}
-          >
-           Próximos Eventos
-          </Button>
+          <>
+  <style>
+    {`
+      .custom-button:hover {
+        background-color:rgb(210, 75, 51) !important;
+      }
+    `}
+  </style>
+  
+  <Button 
+    className="custom-button"
+    variant="secondary" 
+    size="lg" 
+    onClick={() => navigate('/events')}
+    style={{
+      backgroundColor: "#E64A2E",
+      border: "none",
+      padding: "10px 35px",
+      borderRadius: "12px"
+    }}
+  >
+    Próximos Eventos
+  </Button>
+</>
 
           <div className="d-flex justify-content-center gap-4 mt-5">
             <img 

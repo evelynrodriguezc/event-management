@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyEvents from './components/MyEvents';
 import AllEvents from './components/AllEvents';
 import Home from './components/Home';
+import logo from './assets/logo.png';
 
 
 function App() {
@@ -31,28 +32,87 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="light" expand="lg" className="mb-4">
-          <Container>
-            <Navbar.Brand as={Link} to="/">TECHPOINT</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link as={Link} to="/events">Todos los Eventos</Nav.Link>
-                {isLoggedIn && <Nav.Link as={Link} to="/my-events">Mis Eventos</Nav.Link>}
-              </Nav>
-              <Nav>
-                {!isLoggedIn ? (
-                  <>
-                    <Nav.Link onClick={handleShowLogin}>Login</Nav.Link>
-                    <Nav.Link onClick={handleShowRegister}>Register</Nav.Link>
-                  </>
-                ) : (
-                  <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-                )}
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+      <Navbar 
+  bg="light" 
+  expand="lg" 
+  className="mb-4" 
+  style={{ 
+    height: '80px',
+    padding: '0 20px'
+  }}
+>
+  <Container>
+    <Navbar.Brand as={Link} to="/" >
+      <img
+        src={logo}
+        height="38"
+        className="d-inline-block align-top "
+        alt="Techpoint Logo"
+      />
+    </Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link 
+          as={Link} 
+          to="/events" 
+          style={{ 
+            fontSize: '1.1rem',
+            fontWeight: '600',
+          }}
+        >
+          All Events
+        </Nav.Link>
+        {isLoggedIn && 
+          <Nav.Link 
+            as={Link} 
+            to="/my-events"
+            style={{ 
+              fontSize: '1.1rem',
+              fontWeight: '600'
+            }}
+          >
+            My Events
+          </Nav.Link>
+        }
+      </Nav>
+      <Nav>
+        {!isLoggedIn ? (
+          <>
+            <Nav.Link 
+              onClick={handleShowLogin}
+              style={{ 
+                fontSize: '1.1rem',
+                fontWeight: '600'
+              }}
+            >
+              Login
+            </Nav.Link>
+            <Nav.Link 
+              onClick={handleShowRegister}
+              style={{ 
+                fontSize: '1.1rem',
+                fontWeight: '600'
+              }}
+            >
+              Register
+            </Nav.Link>
+          </>
+        ) : (
+          <Nav.Link 
+            onClick={handleLogout}
+            style={{ 
+              fontSize: '1.1rem',
+              fontWeight: '600'
+            }}
+          >
+            Logout
+          </Nav.Link>
+        )}
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
 
         <Login 
           show={showLogin} 
