@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# TechPoint Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Interfaz de usuario para TechPoint, desarrollada con React y React Bootstrap.
 
-## Available Scripts
+## Estructura del Proyecto
 
-In the project directory, you can run:
+```
+frontend/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── AllEvents.js
+│   │   ├── EventForm.js
+│   │   ├── Footer.js
+│   │   ├── Home.js
+│   │   ├── Login.js
+│   │   ├── MyEvents.js
+│   │   └── Register.js
+│   ├── App.js
+│   └── index.js
+└── package.json
+```
 
-### `npm start`
+## Configuración del Entorno
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Crea un archivo `.env` en la raíz del frontend:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```env
+REACT_APP_API_URL=http://localhost:3000/api
+```
 
-### `npm test`
+2. Instala las dependencias:
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Scripts Disponibles
 
-### `npm run build`
+- `npm start`: Inicia la aplicación en modo desarrollo
+- `npm build`: Compila la aplicación para producción
+- `npm test`: Ejecuta los tests
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Componentes Principales
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Pages
+- `Home`: Página principal con carrusel de eventos
+- `AllEvents`: Lista de todos los eventos
+- `MyEvents`: Gestión de eventos del usuario
+- `EventForm`: Formulario para crear/editar eventos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Components
+- `Login`: Modal de inicio de sesión
+- `Register`: Modal de registro
+- `Footer`: Pie de página común
 
-### `npm run eject`
+## Características del Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Diseño responsive
+- Efectos visuales modernos (glassmorphism)
+- Gestión de estado con React Hooks
+- Manejo de rutas protegidas
+- Notificaciones toast para feedback
+- Modales de confirmación personalizados
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Dependencias Principales
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- react
+- react-bootstrap
+- react-router-dom
+- axios
+- react-toastify
+- lucide-react
