@@ -1,80 +1,34 @@
-# TechPoint - Plataforma de Gestión de Eventos
+```markdown
+  # TechPoint
 
-TechPoint es una plataforma web para la gestión y descubrimiento de eventos de tecnología e innovación en Latinoamérica. Permite a los usuarios crear, administrar y descubrir eventos como conferencias, meetups, workshops y hackathons.
+  Platform for creating and discovering tech events across Latin America — conferences, meetups, workshops, hackathons.
 
-## Características Principales
+  ## Features
 
-- 🔐 Autenticación de usuarios
-- 📅 Creación y gestión de eventos
-- 🔍 Filtrado de eventos por fecha y ubicación
-- 👥 Visualización de eventos públicos
-- ⚡ Interfaz moderna y responsive
+  - User registration and login (JWT)
+  - Create, edit, and delete events
+  - Browse and filter events by date and location
+  - Responsive layout
 
-## Estructura del Proyecto
+  ## Stack
 
-El proyecto está dividido en dos partes principales:
+  **Frontend:** React, React Bootstrap, React Router, Axios
+  **Backend:** Node.js, Express, MongoDB, JWT
 
-- `/frontend`: Aplicación cliente desarrollada en React
-- `/backend`: API REST desarrollada en Node.js
+  ## Setup
 
-## Requisitos Previos
+  You'll need Node.js 14+ and MongoDB running locally.
 
-- Node.js (v14 o superior)
-- MongoDB
-- npm o yarn
+  ```bash
+  # Backend
+  cd backend
+  npm install
+  cp .env.example .env   # add your MongoDB URI and JWT secret
+  npm start
 
-## Inicio Rápido
+  # Frontend (separate terminal)
+  cd frontend
+  npm install
+  npm start
 
-1. Clona el repositorio:
-```bash
-git clone https://github.com/tuusuario/techpoint.git
-cd techpoint
-```
-
-2. Instala las dependencias del backend:
-```bash
-cd backend
-npm install
-```
-
-3. Instala las dependencias del frontend:
-```bash
-cd frontend
-npm install
-```
-
-4. Configura las variables de entorno:
-   - Crea un archivo `.env` en la carpeta backend (ver instrucciones en el README del backend)
-   - Crea un archivo `.env` en la carpeta frontend (ver instrucciones en el README del frontend)
-
-5. Inicia el servidor y el cliente:
-```bash
-# En /backend
-npm run dev
-
-# En /frontend
-npm start
-```
-
-## Documentación Detallada
-
-- [Documentación del Frontend](/frontend/README.md)
-- [Documentación del Backend](/backend/README.md)
-
-## Tecnologías Utilizadas
-
-### Frontend
-- React
-- React Bootstrap
-- React Router
-- Axios
-
-### Backend
-- Node.js
-- Express
-- MongoDB
-- JWT
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT.
+  Frontend runs on localhost:3000, backend on localhost:5000.
